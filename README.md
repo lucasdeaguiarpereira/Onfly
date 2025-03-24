@@ -16,6 +16,7 @@ composer install
 npm install
 
 cp .env.example .env
+
 php artisan key:generate
 (necessário configurar o banco de dados dentro do env antes de seguir: 
 por exemplo:
