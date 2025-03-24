@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TravelRequestController;
+use App\Http\Controllers\AuthController;
 
 
 /*
@@ -22,6 +23,7 @@ Route::middleware('api')->get('/user', function (Request $request) {
 });
 
 Route::get('travel-requests/filter', [TravelRequestController::class, 'filter']);
+Route::post('/register', [AuthController::class, 'register']);
 
 
 Route::middleware('auth:api')->group(function () {

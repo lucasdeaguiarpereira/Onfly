@@ -1,3 +1,41 @@
+## Passo a passo
+
+1 - Instalar do Docker na sua versão mais recente;
+
+2 - Realizar a clonagem do repositório com esse comando aqui git clone https://github.com/lucasdeaguiarpereira/Onfly.git ;
+
+3 - Como o projeto já possui o docker-compose.yml basta rodar o comando: 
+docker-compose up -d --build ;
+
+4 - Deverá estar rodando um container com as 4 imagens, laravel_db (mysql:8.0), mailpit(servidor de email), laravel-app (php:8.2), laravel_nginx (nginx:alpine).
+
+5 - Após o container rodar adequadamente basta rodar a seguinte lista de comandos:
+
+composer install
+
+npm install
+
+cp .env.example .env
+php artisan key:generate
+(necessário configurar o banco de dados dentro do env antes de seguir: 
+por exemplo:
+    DB_CONNECTION=mysql
+    DB_HOST=db
+    DB_PORT=3306
+    DB_DATABASE=laravel
+    DB_USERNAME=root
+    DB_PASSWORD=root
+)
+
+6 - Logo em seguida rode as migrations:
+php artisan migrate --seed
+
+7 - Iniciar servidor de backend:
+php artisan serve
+
+8 - Iniciar servidor de frontend pois nesse caso utilizei o Vite.
+npm run dev
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
 <p align="center">

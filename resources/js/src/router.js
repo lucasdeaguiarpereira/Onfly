@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from 'vue-router';
 // Importando os componentes das páginas
 import Dashboard from '../../views/Dashboard.vue';
 import Login from '../../views/Login.vue';
+import RegisterView from '../../views/RegisterView.vue';
 import CreateTravelRequest from '../../views/CreateTravelRequest.vue';
 import NotFound from '../../views/NotFound.vue';
 
@@ -11,6 +12,7 @@ const routes = [
     { path: '/', component: Dashboard, meta: { requiresAuth: true } },
     { path: '/create-request', component: CreateTravelRequest, meta: { requiresAuth: true } },
     { path: '/login', component: Login },
+    { path: '/register', component: RegisterView },
     { path: '/:pathMatch(.*)*', component: NotFound }
 ];
 
