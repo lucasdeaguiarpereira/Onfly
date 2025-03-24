@@ -18,15 +18,25 @@ npm install
 cp .env.example .env
 
 php artisan key:generate
+
 (necessário configurar o banco de dados dentro do env antes de seguir: 
+
 por exemplo:
+
     DB_CONNECTION=mysql
+    
     DB_HOST=db
+    
     DB_PORT=3306
+    
     DB_DATABASE=laravel
+    
     DB_USERNAME=root
+    
     DB_PASSWORD=root
+    
 )
+
 
 6 - Logo em seguida rode as migrations:
 php artisan migrate --seed
