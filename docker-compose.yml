@@ -3,12 +3,16 @@ version: '3.8'
 services:
   app:
     image: php:8.2-fpm
+    build:
+      context: .
+      dockerfile: Dockerfile
     container_name: laravel_app
     working_dir: /var/www
     volumes:
       - .:/var/www
     depends_on:
       - db
+      - mailpit
     networks:
       - laravel
 
@@ -39,6 +43,15 @@ services:
       - "3306:3306"
     volumes:
       - dbdata:/var/lib/mysql
+    networks:
+      - laravel
+
+  mailpit:
+    image: axllent/mailpit  # Atualiza a imagem para a correta
+    container_name: mailpit
+    ports:
+      - "1025:1025"  # SMTP
+      - "8025:8025"  # Interface Web (onde você verá os e-mails)
     networks:
       - laravel
 
